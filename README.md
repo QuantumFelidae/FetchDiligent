@@ -16,6 +16,7 @@ Now, DiligentCore targets are available to link against. For example:
 ```CMake
 target_link_libraries(main PRIVATE Diligent-GraphicsEngineVk-shared)
 ```
+### Extra Diligent Modules
 Obtaining the other Diligent modules, DiligentTools and DiligentFx is done by setting the appropriate variables before calling `MakeAvailable`. For example:
 
 ```CMake
@@ -36,31 +37,10 @@ target_link_libraries(main PRIVATE
                         Diligent-AssetLoader 
                         Diligent-GraphicsEngineVk-shared)
 ```
-A full CMake file might look like:
+### Versioning
 
-```CMake
-cmake_minimum_required (VERSION 3.26)
+To pin a specific git tag to pull from, one can set the variables `DILIGENT_CORE_GIT_TAG`, `DILIGENT_TOOLS_GIT_TAG`, or `DILIGENT_FX_GIT_TAG`
 
-include(FetchContent)
-project ("Sample")
-
-FetchContent_Declare(
-    Diligent
-    GIT_REPOSITORY https://github.com/QuantumFelidae/FetchDiligent.git
-    GIT_TAG master
-)
-set(FETCH_DILIGENT_TOOLS TRUE)
-FetchContent_MakeAvailable(Diligent)
-
-add_executable (main ${MAIN_SOURCES})
-
-
-target_link_libraries(main PRIVATE 
-                        Diligent-Imgui
-                        Diligent-AssetLoader 
-                        Diligent-GraphicsEngineVk-shared)
-
-```
 ## Local Usage
 If the CMakeLists.txt is renamed FetchDiligent.cmake, and placed in your module path, this simplifies to
 ```CMake

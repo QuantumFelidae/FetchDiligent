@@ -11,6 +11,7 @@ FetchContent_Declare(
 
 FetchContent_MakeAvailable(d_core)
 
+
 if(${FETCH_DILIGENT_TOOLS})
     FetchContent_Declare(
         d_tools
@@ -18,6 +19,7 @@ if(${FETCH_DILIGENT_TOOLS})
         GIT_TAG master
     )
     FetchContent_MakeAvailable(d_tools)
+    target_include_directories(Diligent-Imgui PRIVATE ${d_core_SOURCE_DIR}/_/_/_)
 endif()
 
 if(${FETCH_DILIGENT_FX})

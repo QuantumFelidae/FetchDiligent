@@ -1,7 +1,7 @@
 # FetchDiligent
 A short CMake utility to fetch, build, and link Diligent Engine within your own projects.
 
-## Usage
+## Remote Usage
 The most simple usage just exposes the DiligentCore targets
 ```CMake
 include(FetchContent)
@@ -61,4 +61,21 @@ target_link_libraries(main PRIVATE
                         Diligent-GraphicsEngineVk-shared)
 
 ```
+## Local Usage
+If the CMakeLists.txt is renamed FetchDiligent.cmake, and placed in your module path, this simplifies to
+```CMake
+cmake_minimum_required (VERSION 3.26)
 
+project ("Sample")
+list(APPEND CMAKE_MODULE_PATH "<PATH>")
+set(FETCH_DILIGENT_TOOLS TRUE)
+include(FetchDiligent)
+
+add_executable (main ${MAIN_SOURCES})
+
+
+target_link_libraries(main PRIVATE 
+                        Diligent-Imgui
+                        Diligent-AssetLoader 
+                        Diligent-GraphicsEngineVk-shared)
+```

@@ -59,3 +59,5 @@ target_link_libraries(main PRIVATE
                         Diligent-AssetLoader 
                         Diligent-GraphicsEngineVk-shared)
 ```
+### Local Diligent Folders
+If you want the tool to be completely offline by forcing it to pull from locally cloned versions of the Diligent repositories, setting `FETCHCONTENT_SOURCE_DIR_<uppercaseName>`, where \<uppercaseName\> is `DILIGENTCORE`, `DILIGENTTOOLS`, or `DILIGENTFX`, will override the remote source information provided, and will be instead pulled from the provided path.

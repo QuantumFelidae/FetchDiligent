@@ -37,9 +37,9 @@ endif()
 
 if(${FETCH_DILIGENT_FX})
     FetchContent_Declare(
-        d_fx
+        DiligentFx
         GIT_REPOSITORY https://github.com/DiligentGraphics/DiligentFX.git
         GIT_TAG ${DILIGENT_FX_GIT_TAG}
     )
-    FetchContent_MakeAvailable(d_fx)
+    FetchContent_MakeAvailable(DiligentFx)
 endif()
